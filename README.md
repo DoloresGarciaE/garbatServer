@@ -12,4 +12,4 @@
    - DB_NAME=
 
 4. Entrar a la carpeta docker/ y correr el siguiente comando:
-   docker-compose --env-file ../.env up
+   docker-compose --env-file ../.env -d up

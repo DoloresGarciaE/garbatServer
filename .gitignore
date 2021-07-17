@@ -96,6 +96,7 @@ dist
 
 # Docker directories
 docker/mongo-volume/*
+docker/db-config.js
 
 # FuseBox cache
 .fusebox/
