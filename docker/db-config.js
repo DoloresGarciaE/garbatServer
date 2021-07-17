@@ -1,12 +1,13 @@
-import envConfig from "../config/environmentConfig";
-const envConfig = require("../config/environmentConfig");
+// import { DB } from "../config/environmentConfig";
+const DB = require("../config/environmentConfig");
+
 db.createUser({
-  user: envConfig.DB.USER,
-  pwd: envConfig.DB.PWD,
+  user: DB.USER,
+  pwd: DB.PWD,
   roles: [
     {
       role: "readWrite",
-      db: envConfig.DB.NAME,
+      db: DB.NAME,
     },
   ],
 });
