@@ -1,7 +1,12 @@
-const express = require('express');
-const http = require('http');
+const express = require("express");
+const environmentVariables = require("./config/environmentConfig");
+
 const app = express();
 
-app.listen(3000, () => {
-    console.log("Listening on port 3000");
+app.set("port", environmentVariables.EXPRESS.PORT);
+
+app.use(express.json());
+
+app.listen(environmentVariables.EXPRESS.PORT, () => {
+  console.log("Listening on port", environmentVariables.EXPRESS.PORT);
 });
