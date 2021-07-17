@@ -10,6 +10,20 @@
    - DB_PWD=
    - DB_PORT=
    - DB_NAME=
+   - DB_USER_ROOT=
+   - DB_PWD_ROOT=
 
-4. Entrar a la carpeta docker/ y correr el siguiente comando:
+4. Entrar a la carpeta docker/ y crear el archivo db-config.js:
+   db.createUser({
+   user: "tuuser",
+   pwd: "tupwd",
+   roles: [
+   {
+   role: "readWrite",
+   db: "garbat",
+   },
+   ],
+   });
+
+5. correr el siguiente comando:
    docker-compose --env-file ../.env -d up
