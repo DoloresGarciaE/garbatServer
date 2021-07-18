@@ -94,6 +94,10 @@ dist
 # Serverless directories
 .serverless/
 
+# Docker directories
+docker/mongo-volume/*
+docker/db-config.js
+
 # FuseBox cache
 .fusebox/
 
@@ -102,3 +106,4 @@ dist
 
 # TernJS port file
 .tern-port
+
