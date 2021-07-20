@@ -1,19 +1,17 @@
-const mongoose = require('mongoose');
-
-const schema = new mongoose.Schema;
-let carSchema = new schema({
-    brand: { type: schema.Types.ObjectId, ref: 'Brand' },
-    year: String,
-    km: Number,
-    color: { type: schema.Types.ObjectId, ref: 'Color' },
-    fuel: { type: schema.Types.ObjectId, ref: 'Fuel' },
-    description: String,
-    mark: Boolean,
-    photos: [{ type: schema.Types.ObjectId, ref: 'Photo' }]
+const mongoose = require("mongoose");
+let carSchema = new mongoose.Schema({
+  brand: { type: mongoose.Types.ObjectId, ref: "Brand" },
+  year: String,
+  km: Number,
+  color: { type: mongoose.Types.ObjectId, ref: "Color" },
+  fuel: { type: mongoose.Types.ObjectId, ref: "Fuel" },
+  description: String,
+  mark: Boolean,
+  photos: [{ type: mongoose.Types.ObjectId, ref: "Photo" }],
 });
 
-carSchema.set('collection', 'car');
+carSchema.set("collection", "car");
 
-const carModel = mongoose.Model('Car', carSchema);
+const carModel = mongoose.model("Car", carSchema);
 
-module.exports(carModel);
+module.exports = carModel;
