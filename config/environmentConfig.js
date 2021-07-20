@@ -8,6 +8,7 @@ module.exports = {
     PWD: process.env.DB_PWD,
     PORT: process.env.DB_PORT,
     NAME: process.env.DB_NAME,
+    DB_URI: process.env.DB_URI,
   },
   EXPRESS: {
     PORT: parseInt(process.env.PORT),
