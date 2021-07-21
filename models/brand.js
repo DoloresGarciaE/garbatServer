@@ -1,12 +1,11 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const schema = new mongoose.Schema;
-let brandSchema = new schema({
-    name: String
+let brandSchema = new mongoose.Schema({
+    name: String,
 });
 
-brandSchema.set('collection', 'brand');
+brandSchema.set("collection", "brand");
 
-const brandModel = mongoose.Model('Brand', brandSchema);
+const brandModel = mongoose.model("Brand", brandSchema);
 
-module.exports(brnadModel);
+module.exports = brandModel;
