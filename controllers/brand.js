@@ -34,8 +34,22 @@ function deleteById(req, res) {
         });
 }
 
+function updateById(req, res) {
+    const brandId = req.params.brandId;
+    const brandData = req.body.brandData;
+    brandService
+        .updateById(brandId, brandData)
+        .then((data) => {
+            return res.status(200).json(data);
+        })
+        .catch((error) => {
+            return res.status(500).json(error);
+        })
+}
+
 module.exports = {
     findAll,
     create,
     deleteById,
+    updateById,
 };

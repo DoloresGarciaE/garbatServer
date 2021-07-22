@@ -5,6 +5,7 @@ const router = express.Router();
 router.get("", brandController.findAll);
 router.post("", brandController.create);
 router.delete("/:brandId", brandController.deleteById);
+router.put("/:brandId", brandController.updateById);
 
 
 module.exports = router;
