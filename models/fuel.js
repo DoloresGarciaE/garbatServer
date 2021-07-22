@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
 
-const schema = mongoose.Schema;
-let fuelSchema = new schema({
+let fuelSchema = new mongoose.Schema({
     type: String
 });
 
-fuelSchema.set("collection", 'fuel');
+fuelSchema.set("collection", "fuel");
 
-const fuelModel = mongoose.Model('Fuel', fuelSchema);
+const fuelModel = mongoose.model('Fuel', fuelSchema);
 
-module.exports(fuelModel);
+module.exports = fuelModel;
