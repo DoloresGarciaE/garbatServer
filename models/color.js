@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
 
-const schema = mongoose.Schema;
-let colorSchema = new schema({
+let colorSchema = new mongoose.Schema({
     name: String
 });
 
 
-userSchema.set("collection", 'color');
+colorSchema.set("collection", "color");
 
-const colorModel = mongoose.Model('Color', colorSchema);
+const colorModel = mongoose.model("Color", colorSchema);
 
-module.exports = { colorModel };
+module.exports = colorModel;
