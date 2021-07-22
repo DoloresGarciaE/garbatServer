@@ -16,4 +16,13 @@ async function create(brandData) {
     }
 }
 
-module.exports = { findAll, create };
+async function deleteById(brandId) {
+    try {
+        let brandDeleted = await brandModel.deleteOne({ _id: brandId });
+        return brandDeleted;
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports = { findAll, create, deleteById, };

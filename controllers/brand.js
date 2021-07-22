@@ -22,7 +22,20 @@ function create(req, res) {
         });
 }
 
+function deleteById(req, res) {
+    const brandId = req.params.brandId;
+    brandService
+        .deleteById(brandId)
+        .then((data) => {
+            return res.status(200).json(data.ok);
+        })
+        .catch((error) => {
+            return res.status(500).json(error);
+        });
+}
+
 module.exports = {
     findAll,
     create,
+    deleteById,
 };
