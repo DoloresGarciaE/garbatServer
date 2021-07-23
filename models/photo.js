@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
 
-const schema = new mongoose.Schema;
-let photoSchema = new schema({
+let photoSchema = new mongoose.Schema({
     url: String,
-    type: String
+    type: String,
 });
 
-photoSchema.set('collection', 'photo');
+photoSchema.set("collection", "photo");
 
-const photoModel = mongoose.Model('Photo', photoSchema);
+const photoModel = mongoose.model("Photo", photoSchema);
 
-module.exports(photoModel);
+module.exports = photoModel;

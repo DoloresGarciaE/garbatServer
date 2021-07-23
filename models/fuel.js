@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 let fuelSchema = new mongoose.Schema({
-    type: String
+    type: String,
 });
 
 fuelSchema.set("collection", "fuel");
