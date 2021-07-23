@@ -10,4 +10,7 @@ router.use("/api/brand", brandRouter);
 const colorRouter = require("./color");
 router.use("/api/color", colorRouter);
 
+const fuelRouter = require("./fuel");
+router.use("/api/fuel", fuelRouter);
+
 module.exports = router;
