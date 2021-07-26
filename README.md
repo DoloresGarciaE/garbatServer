@@ -13,6 +13,7 @@
    - DB_USER_ROOT=
    - DB_PWD_ROOT=
    - PORT=
+   - JWT_SECRET=
 
 4. Entrar a la carpeta docker/ y crear el archivo db-config.js:
    db.createUser({
@@ -27,4 +28,4 @@
    });
 
 5. correr el siguiente comando:
-   docker-compose --env-file ../.env -d up
+   docker-compose --env-file ../.env up -d
