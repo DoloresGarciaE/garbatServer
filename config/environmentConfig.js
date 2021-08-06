@@ -13,4 +13,7 @@ module.exports = {
   EXPRESS: {
     PORT: parseInt(process.env.PORT),
   },
+  JWT: {
+    PASSWORD: process.env.JWT_SECRET,
+  },
 };

@@ -2,15 +2,15 @@ const express = require("express");
 const router = express.Router();
 
 const carRouter = require("./cars");
-router.use("/api/car", carRouter);
-
-const brandRouter = require("./brand");
-router.use("/api/brand", brandRouter);
-
-const colorRouter = require("./color");
-router.use("/api/color", colorRouter);
-
 const fuelRouter = require("./fuel");
+const colorRouter = require("./color");
+const brandRouter = require("./brand");
+const userRouter = require("./user");
+
+router.use("/api/brand", brandRouter);
+router.use("/api/car", carRouter);
+router.use("/api/color", colorRouter);
 router.use("/api/fuel", fuelRouter);
+router.use("/api/user", userRouter);
 
 module.exports = router;
