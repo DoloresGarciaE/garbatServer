@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-
 const carRouter = require("./cars");
 const fuelRouter = require("./fuel");
 const colorRouter = require("./color");
