@@ -43,8 +43,12 @@ async function login(loginInfo) {
             },
             environmentVars.JWT.PASSWORD
           ),
-          userName: user.name,
-          userSurname: user.surname,
+          userData: {
+            name: user.name,
+            surname: user.surname,
+            email: user.email,
+            _id: user._id,
+          },
         };
       } else
         throw { status: 401, message: "Authentication failed. Password wrong" };
