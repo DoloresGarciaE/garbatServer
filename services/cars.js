@@ -1,4 +1,4 @@
-const carModel = require("../models/car");
+const carModel = require('../models/car');
 
 async function findAll(filter = null) {
   try {

@@ -1,8 +1,8 @@
-version: "3"
+version: '3'
 services:
   database:
-    image: "mongo"
-    container_name: "garbat_mongoDB"
+    image: 'mongo'
+    container_name: 'garbat_mongoDB'
     environment:
       - MONGO_INITDB_DATABASE=${DB_NAME}
       - MONGO_INITDB_ROOT_USERNAME=${DB_USER_ROOT}
@@ -11,4 +11,4 @@ services:
       - ./db-config.js:/docker-entrypoint-initdb.d/db-config.js:ro
       - ./mongo-volume:/data/db
     ports:
-      - "27017:27017"
+      - '27017:27017'

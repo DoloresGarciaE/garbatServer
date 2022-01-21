@@ -1,12 +1,23 @@
 const mongoose = require('mongoose');
 
-let colorSchema = new mongoose.Schema({
-    name: String,
+const colorSchema = new mongoose.Schema({
+  name: String,
 });
 
+colorSchema.set('collection', 'color');
 
-colorSchema.set("collection", "color");
+const ColorModel = mongoose.model('Color', colorSchema);
 
-const colorModel = mongoose.model("Color", colorSchema);
+ColorModel.create = async function create(name) {
+  try {
+    let photos = new ColorModel();
+    photos.name = name;
 
-module.exports = colorModel;
+    photos = await photos.save();
+    return photos;
+  } catch (error) {
+    return error;
+  }
+};
+
+module.exports = ColorModel;

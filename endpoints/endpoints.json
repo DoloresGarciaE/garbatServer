@@ -1,51 +1,46 @@
 {
-	"info": {
-		"_postman_id": "ed0fb025-13cd-42d8-94fc-a08771d04966",
-		"name": "Garbat",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Cars",
-			"item": [
-				{
-					"name": "Create new Car",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"year\": \"2019\",\n    \"km\": 700000,\n    \"description\": \"Test\",\n    \"mark\": true\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:3000/api/car",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"car"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Find All",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": null
-					},
-					"response": []
-				}
-			]
-		}
-	]
+  "info": {
+    "_postman_id": "ed0fb025-13cd-42d8-94fc-a08771d04966",
+    "name": "Garbat",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Cars",
+      "item": [
+        {
+          "name": "Create new Car",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"year\": \"2019\",\n    \"km\": 700000,\n    \"description\": \"Test\",\n    \"mark\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/api/car",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "car"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find All",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": null
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
 }

@@ -1,12 +1,25 @@
 const mongoose = require('mongoose');
 
-let photoSchema = new mongoose.Schema({
-    url: String,
-    type: String,
+const photoSchema = new mongoose.Schema({
+  url: String,
+  type: String,
 });
 
-photoSchema.set("collection", "photo");
+photoSchema.set('collection', 'photo');
 
-const photoModel = mongoose.model("Photo", photoSchema);
+const PhotoModel = mongoose.model('Photo', photoSchema);
 
-module.exports = photoModel;
+PhotoModel.create = async function create(url, type) {
+  try {
+    let photo = new PhotoModel();
+    photo.url = url;
+    photo.type = type;
+
+    photo = await photo.save();
+    return photo;
+  } catch (error) {
+    return error;
+  }
+};
+
+module.exports = PhotoModel;

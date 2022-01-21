@@ -1,6 +1,4 @@
-"use strict";
-
-require("dotenv").config({ path: ".env" });
+require('dotenv').config({ path: '.env' });
 
 module.exports = {
   DB: {
@@ -11,7 +9,7 @@ module.exports = {
     DB_URI: process.env.DB_URI,
   },
   EXPRESS: {
-    PORT: parseInt(process.env.PORT),
+    PORT: parseInt(process.env.PORT, 10),
   },
   JWT: {
     PASSWORD: process.env.JWT_SECRET,

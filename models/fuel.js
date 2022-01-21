@@ -1,11 +1,23 @@
 const mongoose = require('mongoose');
 
-let fuelSchema = new mongoose.Schema({
-    type: String,
+const fuelSchema = new mongoose.Schema({
+  type: String,
 });
 
-fuelSchema.set("collection", "fuel");
+fuelSchema.set('collection', 'fuel');
 
-const fuelModel = mongoose.model('Fuel', fuelSchema);
+const FuelModel = mongoose.model('Fuel', fuelSchema);
 
-module.exports = fuelModel;
+FuelModel.create = async function create(type) {
+  try {
+    let fuel = new FuelModel();
+    fuel.type = type;
+
+    fuel = await fuel.save();
+    return fuel;
+  } catch (error) {
+    return error;
+  }
+};
+
+module.exports = FuelModel;

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 async function connection(url) {
   try {
@@ -8,6 +8,7 @@ async function connection(url) {
     });
   } catch (error) {
     console.log(error);
+    return error;
   }
 }
 

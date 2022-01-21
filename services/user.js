@@ -1,6 +1,6 @@
-const userModel = require("../models/user");
-const jwt = require("jsonwebtoken");
-const environmentVars = require("../config/environmentConfig");
+const jwt = require('jsonwebtoken');
+const userModel = require('../models/user');
+const environmentVars = require('../config/environmentConfig');
 
 async function findAll(filter = null) {
   try {
@@ -21,7 +21,7 @@ async function create(userData) {
 
 async function deleteById(userId) {
   try {
-    let userDeleted = await userModel.deleteOne({ _id: userId });
+    const userDeleted = await userModel.deleteOne({ _id: userId });
     return userDeleted;
   } catch (error) {
     throw error;
@@ -41,7 +41,7 @@ async function login(loginInfo) {
               surname: user.surname,
               _id: user._id,
             },
-            environmentVars.JWT.PASSWORD
+            environmentVars.JWT.PASSWORD,
           ),
           userData: {
             name: user.name,
@@ -50,8 +50,8 @@ async function login(loginInfo) {
             _id: user._id,
           },
         };
-      } else
-        throw { status: 401, message: "Authentication failed. Password wrong" };
+      }
+      throw { status: 401, message: 'Authentication failed. Password wrong' };
     } else
       throw {
         status: 412,
@@ -64,7 +64,7 @@ async function login(loginInfo) {
 
 async function updateById(userId, userData) {
   try {
-    let userUpdate = await userModel.updateOne({ _id: userId }, userData);
+    const userUpdate = await userModel.updateOne({ _id: userId }, userData);
     return userUpdate;
   } catch (error) {
     throw error;

@@ -1,39 +1,37 @@
-const colorModel = require("../models/color");
+const colorModel = require('../models/color');
 
 async function findAll(filter = null) {
-    try {
-        return await colorModel.find(filter);
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    return await colorModel.find(filter);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-
 async function create(colorData) {
-    try {
-        return await colorModel.create(colorData);
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    return await colorModel.create(colorData);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 async function deleteById(colorId) {
-    try {
-        let colorDeleted = await colorModel.deleteOne({ _id: colorId });
-        return colorDeleted;
-    } catch (error) {
-        throw error;
-    }
+  try {
+    const colorDeleted = await colorModel.deleteOne({ _id: colorId });
+    return colorDeleted;
+  } catch (error) {
+    throw error;
+  }
 }
 
 async function updateById(colorId, colorData) {
-    try {
-        let colorUpdate = await colorModel.updateOne({ _id: colorId }, colorData);
-        return colorUpdate;
-    }
-    catch (error) {
-        throw error;
-    }
+  try {
+    const colorUpdate = await colorModel.updateOne({ _id: colorId }, colorData);
+    return colorUpdate;
+  } catch (error) {
+    throw error;
+  }
 }
 
-module.exports = { findAll, create, deleteById, updateById, };
+module.exports = { findAll, create, deleteById, updateById };

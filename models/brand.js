@@ -1,11 +1,26 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-let brandSchema = new mongoose.Schema({
-    name: String,
+// Registra la informacion del brand
+const BrandSchema = new mongoose.Schema({
+  name: String,
 });
 
-brandSchema.set("collection", "brand");
+BrandSchema.methods.getId = async function getId() {
+  return this.name;
+};
 
-const brandModel = mongoose.model("Brand", brandSchema);
+const BrandModel = mongoose.model('Brand', BrandSchema);
 
-module.exports = brandModel;
+// Crear un nuevo brand
+BrandModel.createBrand = async function createBrand(name) {
+  try {
+    let brand = new BrandModel();
+    brand.name = name;
+    brand = await brand.save();
+    return brand;
+  } catch (error) {
+    return error;
+  }
+};
+
+module.exports = BrandModel;
