@@ -10,6 +10,15 @@ const findAll = async function findAll(filter = null) {
   }
 };
 
+// Obtener los id de los brand con algun name
+const findByName = async function findByName(filter = 'name') {
+  try {
+    return await brandModel.find(filter);
+  } catch (error) {
+    return error;
+  }
+};
+
 // Crea un Brand
 const create = async function create(brandData) {
   if (!brandData) throw missingbrandData;
@@ -43,4 +52,4 @@ const updateById = async function updateById(brandId, brandData) {
   }
 };
 
-module.exports = { findAll, create, deleteById, updateById };
+module.exports = { findAll, create, deleteById, updateById, findByName };

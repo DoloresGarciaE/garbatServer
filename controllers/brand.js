@@ -20,6 +20,16 @@ const findAll = async (req, res) => {
   }
 };
 
+const findByName = async (req, res) => {
+  const { query } = req.query;
+  try {
+    const brand = await brandService.findByName(query);
+    return res.status(200).json(brand);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
 const deleteById = async (req, res) => {
   const { brandId } = req.params;
   try {
@@ -46,4 +56,5 @@ module.exports = {
   createBrand,
   deleteById,
   updateById,
+  findByName,
 };
