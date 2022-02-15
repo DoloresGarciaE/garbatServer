@@ -12,7 +12,7 @@ userSchema.set('collection', 'user');
 
 // eslint-disable-next-line func-names
 // eslint-disable-next-line consistent-return
-userSchema.pre('save', function (next) {
+userSchema.pre('save', (next) => {
   const user = this;
   if (this.isModified('pwd') || this.isNew) {
     // eslint-disable-next-line consistent-return
@@ -29,7 +29,7 @@ userSchema.pre('save', function (next) {
   } else return next();
 });
 
-userSchema.methods.comparePassword = function (password) {
+userSchema.methods.comparePassword = (password) => {
   return bcrypt.compareSync(password, this.pwd);
 };
 

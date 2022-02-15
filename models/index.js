@@ -7,7 +7,6 @@ async function connection(url) {
       useUnifiedTopology: true,
     });
   } catch (error) {
-    console.log(error);
     return error;
   }
 }

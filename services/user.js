@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const jwt = require('jsonwebtoken');
 const userModel = require('../models/user');
 const environmentVars = require('../config/environmentConfig');
@@ -6,7 +7,7 @@ async function findAll(filter = null) {
   try {
     return await userModel.find(filter);
   } catch (error) {
-    console.log(error);
+    return error;
   }
 }
 
@@ -14,8 +15,7 @@ async function create(userData) {
   try {
     return await userModel.create(userData);
   } catch (error) {
-    console.log(error);
-    throw error;
+    return error;
   }
 }
 
@@ -24,7 +24,7 @@ async function deleteById(userId) {
     const userDeleted = await userModel.deleteOne({ _id: userId });
     return userDeleted;
   } catch (error) {
-    throw error;
+    return error;
   }
 }
 
@@ -51,14 +51,14 @@ async function login(loginInfo) {
           },
         };
       }
-      throw { status: 401, message: 'Authentication failed. Password wrong' };
-    } else
-      throw {
-        status: 412,
-        message: "Authentication failed. User doesn't exist",
-      };
+      return { status: 401, message: 'Authentication failed. Password wrong' };
+    }
+    return {
+      status: 412,
+      message: "Authentication failed. User doesn't exist",
+    };
   } catch (error) {
-    throw error;
+    return error;
   }
 }
 
@@ -67,7 +67,7 @@ async function updateById(userId, userData) {
     const userUpdate = await userModel.updateOne({ _id: userId }, userData);
     return userUpdate;
   } catch (error) {
-    throw error;
+    return error;
   }
 }
 
